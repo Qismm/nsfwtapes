@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NsfwTapes - The latest and greatest tapes</title>
   <link rel="icon" href="logo.png" type="image/png">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       min-height: 100vh;
       background-color: #0d0a08;
-      background-image: 
+      background-image:
         radial-gradient(ellipse at center, rgba(42, 31, 26, 0.75) 0%, rgba(13, 10, 8, 0.92) 70%),
         url('background.png');
       background-size: cover;
@@ -29,12 +36,10 @@
       align-items: center;
       padding: 60px 20px 50px;
     }
-
     .container {
       width: 100%;
       max-width: 440px;
     }
-
     /* Promo card */
     .promo {
       background: #1a1614;
@@ -47,12 +52,10 @@
       box-shadow: 0 8px 28px rgba(0,0,0,0.45);
       animation: pop 3s ease-in-out infinite;
     }
-
     @keyframes pop {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.03); }
     }
-
     .promo img {
       width: 64px;
       height: 64px;
@@ -60,20 +63,17 @@
       object-fit: cover;
       flex-shrink: 0;
     }
-
     .promo-text h2 {
       font-size: 21px;
       font-weight: 600;
       margin-bottom: 5px;
       letter-spacing: 0.2px;
     }
-
     .promo-text p {
       font-size: 14.5px;
       color: #c2b8ae;
       line-height: 1.4;
     }
-
     /* Shared item style */
     .item, .button-link {
       background: #1a1614;
@@ -86,7 +86,6 @@
       text-decoration: none;
       color: inherit;
     }
-
     .item-header, .button-link {
       display: flex;
       align-items: center;
@@ -95,12 +94,10 @@
       cursor: pointer;
       user-select: none;
     }
-
     .item-header:hover, .button-link:hover {
       background: #221e1b;
       transform: translateY(-1px);
     }
-
     .item-icon {
       width: 30px;
       height: 30px;
@@ -109,30 +106,25 @@
       justify-content: center;
       flex-shrink: 0;
     }
-
     .item-icon svg {
       width: 24px;
       height: 24px;
       fill: #ffffff;
     }
-
     .item-title {
       flex: 1;
       font-size: 17px;
       font-weight: 500;
     }
-
     .chevron {
       width: 18px;
       height: 18px;
       transition: transform 0.28s ease;
       opacity: 0.7;
     }
-
     .item.open .chevron {
       transform: rotate(180deg);
     }
-
     /* Badges */
     .badge {
       font-size: 12px;
@@ -144,17 +136,14 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
       animation: badgePulse 2.6s ease-in-out infinite;
     }
-
     .badge.red {
       background: linear-gradient(135deg, #ff4757, #e84118);
       color: #ffffff;
     }
-
     .badge.green {
       background: linear-gradient(135deg, #2ed573, #1eae5a);
       color: #ffffff;
     }
-
     @keyframes badgePulse {
       0%, 100% {
         transform: scale(1);
@@ -165,7 +154,6 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.45);
       }
     }
-
     /* Dropdown */
     .item-content {
       max-height: 0;
@@ -173,18 +161,15 @@
       transition: max-height 0.35s ease;
       background: transparent;
     }
-
     .item.open .item-content {
       max-height: 420px;
     }
-
     .item-content-inner {
       padding: 10px 12px 14px;
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-
     .item-content a {
       display: block;
       background: rgba(255, 255, 255, 0.06);
@@ -199,14 +184,12 @@
       font-weight: 500;
       transition: all 0.2s ease;
     }
-
     .item-content a:hover {
       background: rgba(255, 255, 255, 0.11);
       border-color: rgba(255, 255, 255, 0.16);
       color: #ffffff;
       transform: translateY(-1px);
     }
-
     @media (max-width: 480px) {
       .container {
         max-width: 100%;
@@ -220,9 +203,7 @@
   </style>
 </head>
 <body>
-
   <div class="container">
-
     <!-- Promo card -->
     <div class="promo">
       <img src="logo.png" alt="Logo">
@@ -231,7 +212,6 @@
         <p>Exclusive full-length videos, live camshows & free previews</p>
       </div>
     </div>
-
     <!-- XXX -->
     <div class="item" onclick="toggle(this)">
       <div class="item-header">
@@ -250,7 +230,6 @@
         </div>
       </div>
     </div>
-
     <!-- Reddit -->
     <a href="https://www.reddit.com/r/dumbhotblondes/" class="button-link" target="_blank">
       <div class="item-icon">
@@ -258,7 +237,6 @@
       </div>
       <div class="item-title">Subreddit</div>
     </a>
-
     <!-- Discord 18+ -->
     <a href="https://discord.com/invite/freakshow" class="button-link" target="_blank">
       <div class="item-icon">
@@ -267,13 +245,33 @@
       <div class="item-title">Discord 18+</div>
       <span class="badge red">Live Camshows</span>
     </a>
-
   </div>
-
   <script>
     function toggle(el) {
       el.classList.toggle('open');
     }
+
+    document.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var href = this.getAttribute('href') || '';
+        var text = this.textContent.trim();
+
+        if (typeof gtag !== 'function') return;
+
+        if (href.includes('x.com/nsfwtapes') || text === '@nsfwtapes') {
+          gtag('event', 'click_nsfwtapes');
+        }
+        if (href.includes('x.com/asiantapes') || text === '@asiantapes') {
+          gtag('event', 'click_asiantapes');
+        }
+        if (href.includes('reddit.com') || text === 'Subreddit') {
+          gtag('event', 'click_subreddit');
+        }
+        if (href.includes('discord.com') || text === 'Discord 18+') {
+          gtag('event', 'click_discord');
+        }
+      });
+    });
   </script>
 </body>
 </html>
