@@ -122,6 +122,20 @@
       color: #d8d0c8;
       letter-spacing: 0.2px;
     }
+    .show-more {
+      display: none;
+      margin: 16px auto 0;
+      color: #d8d0c8;
+      background: #1a1614;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .show-more:hover { background: #221e1b; color: #fff; }
     .card.placeholder {
       cursor: default;
       opacity: 0.55;
@@ -636,7 +650,7 @@
       <a class="soc" href="https://x.com/nsfwtapes" target="_blank" rel="noopener" data-track="click_nsfwtapes" aria-label="X">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a>
-      <a class="soc" href="https://www.reddit.com/r/dumbhotblondes/" target="_blank" rel="noopener" data-track="click_subreddit" aria-label="Reddit">
+      <a class="soc" href="https://www.reddit.com/r/nsfwtape/" target="_blank" rel="noopener" data-track="click_subreddit" aria-label="Reddit">
         <svg viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.028l2.914.614a1.214 1.214 0 0 1 1.108-.701zM9.25 12.001c-.552 0-1 .449-1 1 0 .552.448 1 1 1 .552 0 1-.448 1-1 0-.551-.448-1-1-1zm5.5 0c-.552 0-1 .449-1 1 0 .552.448 1 1 1 .552 0 1-.448 1-1 0-.551-.448-1-1-1zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
       </a>
       <a class="soc" href="https://discord.com/invite/freakshow" target="_blank" rel="noopener" data-track="click_discord" aria-label="Discord">
@@ -647,12 +661,19 @@
 
   <div class="wrap">
     <div class="section">
-      <div class="section-title">Morning tapes <span class="count-badge" id="morningCount">0</span></div>
+      <div class="section-title">Morning Tapes <span class="count-badge" id="morningCount">0</span></div>
       <div class="grid" id="morningGrid"></div>
+      <button type="button" class="show-more" id="morningMore">Show more</button>
     </div>
     <div class="section">
-      <div class="section-title">Nighttime tapes <span class="count-badge" id="nightCount">0</span></div>
+      <div class="section-title">Night Tapes <span class="count-badge" id="nightCount">0</span></div>
       <div class="grid" id="nightGrid"></div>
+      <button type="button" class="show-more" id="nightMore">Show more</button>
+    </div>
+    <div class="section">
+      <div class="section-title">Solo Tapes <span class="count-badge" id="soloCount">0</span></div>
+      <div class="grid" id="soloGrid"></div>
+      <button type="button" class="show-more" id="soloMore">Show more</button>
     </div>
   </div>
 
@@ -698,7 +719,7 @@
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         @X/Twitter
       </a>
-      <a href="https://www.reddit.com/r/dumbhotblondes/" target="_blank" rel="noopener" data-track="click_subreddit">
+      <a href="https://www.reddit.com/r/nsfwtape/" target="_blank" rel="noopener" data-track="click_subreddit">
         <svg viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.028l2.914.614a1.214 1.214 0 0 1 1.108-.701zM9.25 12.001c-.552 0-1 .449-1 1 0 .552.448 1 1 1 .552 0 1-.448 1-1 0-.551-.448-1-1-1zm5.5 0c-.552 0-1 .449-1 1 0 .552.448 1 1 1 .552 0 1-.448 1-1 0-.551-.448-1-1-1zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
         Subreddit
       </a>
@@ -781,11 +802,34 @@
         thumb: "thumbnails/when best friends fuck - the creampie accident [longer scene].png",
         type: "embed",
         src: "https://www.pornhub.com/embed/6a6a78cc1992a"
+      },
+      {
+        title: "Accidental Creampie for Hot Teen Step Sis",
+        thumb: "thumbnails/Accidental Creampie for Hot Teen Step Sis.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6a848bbb0f007"
+      },
+      {
+        title: "Cum on my girlfriend's face after workout",
+        thumb: "thumbnails/Cum on my girlfriend's face after workout.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6a4af471994f3"
+      },
+      {
+        title: "POV video with a young lady on the table, cumshot on her stomach",
+        thumb: "thumbnails/POV video with a young lady on the table, cumshot on her stomach.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/ph62fa43adca357"
+      },
+      {
+        title: "morning time sex",
+        thumb: "thumbnails/morning time sex.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6a848bbb0f007"
       }
     ];
 
-    // Fill these in the same format as morningVideos
- const nightVideos = [
+    const nightVideos = [
       {
         title: "Big Ass Columbian Student Bribes Her Teachers",
         thumb: "thumbnails/Big Ass Columbian Student Bribes Her Teachers.png",
@@ -804,7 +848,7 @@
         type: "embed",
         src: "https://www.pornhub.com/embed/69367f0f115fc"
       },
-            {
+      {
         title: "Big Titty Redhead Teen Goes Crazy On The Dick",
         thumb: "thumbnails/Big Titty Redhead Teen Goes Crazy On The Dick.png",
         type: "embed",
@@ -833,10 +877,85 @@
         thumb: "thumbnails/She Got Addicted To Him.png",
         type: "embed",
         src: "https://www.pornhub.com/embed/6580205eb4567"
+      },
+      {
+        title: "My roommate came to show off her panties, so I helped her come",
+        thumb: "thumbnails/My roommate came to show off her panties, so I helped her come.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/68f7fcf4a2619"
+      },
+      {
+        title: "My ex turned out to be my new roommate",
+        thumb: "thumbnails/My ex turned out to be my new roommate.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/69050b72b5ace"
       }
     ];
 
-    // Add each file you put in the shorts folder
+
+    const soloVideos = [
+      {
+        title: "I'M CUMMING! Humping Orgasms Compilation",
+        thumb: "thumbnails/I'M CUMMING! Humping Orgasms Compilation.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6950176c170d5"
+      },
+      {
+        title: "Stepsister Panties Try On Haul! Perfect Ass Shaking and Teasing",
+        thumb: "thumbnails/Stepsister Panties Try On Haul! Perfect Ass Shaking and Teasing.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6a35043860c09"
+      },
+      {
+        title: "Didn’t expect my first solo day to end with an orgasm and satisfied",
+        thumb: "thumbnails/Didn’t expect my first solo day to end with an orgasm and satisfied.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6865a11372e39"
+      },
+      {
+        title: "broke up with my boyfriend",
+        thumb: "thumbnails/broke up with my boyfriend.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6a4fa5e39f17d"
+      },
+      {
+        title: "Playing with my pussy in grey panties and cute socks",
+        thumb: "thumbnails/Playing with my pussy in grey panties and cute socks.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6a2ab51d22e55"
+      },
+      {
+        title: "OH FUCK! I want to cum all over your cock!",
+        thumb: "thumbnails/OH FUCK! I want to cum all over your cock.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/67a67599b41a0"
+      },
+      {
+        title: "hot blonde finger her tight wet pussy until squirt",
+        thumb: "thumbnails/hot blonde finger her tight wet pussy until squirt.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6a81f0d65ca8a"
+      },
+      {
+        title: "POV JOI for my stepfather",
+        thumb: "thumbnails/POV JOI for my stepfather.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/66f9aed68fae0"
+      },
+      {
+        title: "Caught roommate SQUIRTED from fright",
+        thumb: "thumbnails/Caught roommate SQUIRTED from fright.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6a4a969639fc0"
+      },
+      {
+        title: "A real morning orgasm and pillow humping of a charming girl",
+        thumb: "thumbnails/A real morning orgasm and pillow humping of a charming girl.png",
+        type: "embed",
+        src: "https://www.pornhub.com/embed/6665cab3b6c23"
+      }
+    ];
+
     const shortFiles = [
       "shorts/1.mp4",
       "shorts/2.mp4",
@@ -857,6 +976,7 @@
 
         const morningGrid = document.getElementById('morningGrid');
     const nightGrid = document.getElementById('nightGrid');
+    const soloGrid = document.getElementById('soloGrid');
     const modal = document.getElementById('modal');
     const player = document.getElementById('player');
     const embedPlayer = document.getElementById('embedPlayer');
@@ -866,6 +986,12 @@
     const socialsPopup = document.getElementById('socialsPopup');
     function openSocials() {
       socialsPopup.classList.add('open');
+    }
+    var shortsSocialShown = false;
+    function openSocialsOnce() {
+      if (shortsSocialShown) return;
+      shortsSocialShown = true;
+      openSocials();
     }
     function closeSocials() {
       socialsPopup.classList.remove('open');
@@ -941,10 +1067,31 @@
     function readyCount(list) {
       return list.filter(function(v) { return !!(v && v.src); }).length;
     }
-    renderVideos(morningVideos, morningGrid);
-    renderVideos(nightVideos, nightGrid);
+    var PAGE_SIZE = 8;
+    function setupPager(list, grid, btn) {
+      var shown = 0;
+      function showNext() {
+        var next = list.slice(shown, shown + PAGE_SIZE);
+        renderVideos(next, grid);
+        shown += next.length;
+        if (shown < list.length) {
+          btn.style.display = 'block';
+        } else {
+          btn.style.display = 'none';
+        }
+      }
+      showNext();
+      btn.addEventListener('click', function() {
+        showNext();
+        if (typeof gtag === 'function') gtag('event', 'click_show_more');
+      });
+    }
+    setupPager(shuffle(morningVideos), morningGrid, document.getElementById('morningMore'));
+    setupPager(shuffle(nightVideos), nightGrid, document.getElementById('nightMore'));
+    setupPager(shuffle(soloVideos), soloGrid, document.getElementById('soloMore'));
     document.getElementById('morningCount').textContent = readyCount(morningVideos);
     document.getElementById('nightCount').textContent = readyCount(nightVideos);
+    document.getElementById('soloCount').textContent = readyCount(soloVideos);
 
 
     var shortIndex = 0;
@@ -981,6 +1128,7 @@
       vp.classList.add('active');
       vp.play().catch(function(){});
       if (typeof gtag === 'function') gtag('event', 'view_short', { event_label: readyShorts[i] });
+      if (i === 1) openSocialsOnce();
     }
     function buildMobileShorts() {
       var box = document.getElementById('shortsMobile');
@@ -1000,6 +1148,18 @@
         slide.appendChild(vid);
         box.appendChild(slide);
       });
+      if (box._shortsObs) box._shortsObs.disconnect();
+      var slides = box.querySelectorAll('.short-slide');
+      if (slides[1] && 'IntersectionObserver' in window) {
+        box._shortsObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+              openSocialsOnce();
+            }
+          });
+        }, { root: box, threshold: 0.6 });
+        box._shortsObs.observe(slides[1]);
+      }
     }
     document.getElementById('shortPrev').addEventListener('click', function(){ loadShort(shortIndex - 1); });
     document.getElementById('shortNext').addEventListener('click', function(){ loadShort(shortIndex + 1); });
@@ -1022,6 +1182,7 @@
       document.getElementById('btnFull').classList.remove('active');
       closeModal();
       closeSocials();
+      shortsSocialShown = false;
       setShortPlaylist(shortFiles);
       loadShort(0);
       buildMobileShorts();
