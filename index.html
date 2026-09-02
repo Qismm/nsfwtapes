@@ -136,6 +136,59 @@
       font-family: inherit;
     }
     .show-more:hover { background: #221e1b; color: #fff; }
+
+    .creator-ticker {
+      overflow: hidden;
+      margin: 0 -4px;
+    }
+    .creator-track {
+      display: flex;
+      gap: 18px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .profile-card {
+      width: 72px;
+      flex: 0 0 72px;
+      background: none;
+      border: 0;
+      box-shadow: none;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+    }
+    .profile-card:hover { transform: none; background: none; }
+    .profile-card .thumb {
+      width: 56px;
+      height: 56px;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto 6px;
+      border-radius: 50%;
+      background: #2a221e;
+      overflow: hidden;
+    }
+    .profile-card .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .profile-meta { padding: 0; }
+    .profile-meta strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: #d8d0c8;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .profile-meta span { display: none; }
+    @media (max-width: 680px) {
+      .profile-card { width: 64px; flex-basis: 64px; }
+      .profile-card .thumb { width: 50px; height: 50px; }
+    }
+
     .card.placeholder {
       cursor: default;
       opacity: 0.55;
@@ -195,6 +248,35 @@
       justify-content: center;
     }
     .play svg { width: 18px; height: 18px; fill: #fff; margin-left: 2px; }
+
+    .creator-tag {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      max-width: calc(100% - 16px);
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.72);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .creator-tag:hover { background: rgba(0,0,0,0.88); }
+    .creator-tag .check {
+      width: 13px;
+      height: 13px;
+      margin-left: 5px;
+      flex-shrink: 0;
+    }
+
     .card-title {
       padding: 11px 12px 13px;
       font-size: 14px;
@@ -689,6 +771,10 @@
 
   <div class="wrap">
     <div class="section">
+      <div class="section-title">Creators <span class="count-badge" id="creatorCount">0</span></div>
+      <div class="creator-ticker"><div class="creator-track" id="creatorGrid"></div></div>
+    </div>
+    <div class="section">
       <div class="section-title">Morning Tapes <span class="count-badge" id="morningCount">0</span></div>
       <div class="grid" id="morningGrid"></div>
       <button type="button" class="show-more" id="morningMore">Show more</button>
@@ -784,209 +870,11 @@
       </div>
     </div>
   </div>
+  <script src="data.js"></script>
   <script>
-    const morningVideos = [
-      {
-        title: "A camping trip with my friend ended in rough sex in the tent",
-        thumb: "thumbnails/A camping trip with my friend ended in rough sex in the tent.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a81f130d63fa"
-      },
-      {
-        title: "My flexible stepsister teased me during yoga… I couldn’t resist",
-        thumb: "thumbnails/My flexible stepsister teased me during yoga… I couldn’t resist.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a8b87e528969"
-      },
-      {
-        title: "We woke up horny - amateur real couple morning sex",
-        thumb: "thumbnails/We woke up horny - amateur real couple morning sex.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a8769b7c9105"
-      },
-      {
-        title: "Stepfather lost control and felt how wet his stepdaughter's panties were",
-        thumb: "thumbnails/Stepfather lost control and felt how wet his stepdaughter's panties were.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a71daf80f0b1"
-      },
-      {
-        title: "Secretary's pussy flowed out after being punished by a frantic boss",
-        thumb: "thumbnails/Secretary's pussy flowed out after being punished by a frantic boss.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a8cd870bd19d"
-      },
-      {
-        title: "I Thought It Was My Wife, But By Mistake I Fucked Her Sister and Finished in Her Pussy",
-        thumb: "thumbnails/I Thought It Was My Wife, But By Mistake I Fucked Her Sister and Finished in Her Pussy.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a57a5174ce01"
-      },
-      {
-        title: "I Sabotaged the AC to Get My Thick Roommate to Take Her Clothes Off",
-        thumb: "thumbnails/I Sabotaged the AC to Get My Thick Roommate to Take Her Clothes Off.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a6ea7247644f"
-      },
-      {
-        title: "when best friends fuck - the creampie accident [longer scene]",
-        thumb: "thumbnails/when best friends fuck - the creampie accident [longer scene].png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a6a78cc1992a"
-      },
-      {
-        title: "Accidental Creampie for Hot Teen Step Sis",
-        thumb: "thumbnails/Accidental Creampie for Hot Teen Step Sis.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a848bbb0f007"
-      },
-      {
-        title: "Cum on my girlfriend's face after workout",
-        thumb: "thumbnails/Cum on my girlfriend's face after workout.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a4af471994f3"
-      },
-      {
-        title: "POV video with a young lady on the table, cumshot on her stomach",
-        thumb: "thumbnails/POV video with a young lady on the table, cumshot on her stomach.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/ph62fa43adca357"
-      },
-      {
-        title: "morning time sex",
-        thumb: "thumbnails/morning time sex.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a848bbb0f007"
-      }
-    ];
+    /* creators + videos live in data.js */
 
-    const nightVideos = [
-      {
-        title: "Big Ass Columbian Student Bribes Her Teachers",
-        thumb: "thumbnails/Big Ass Columbian Student Bribes Her Teachers.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a6b88b397a56"
-      },
-      {
-        title: "Cute Columbian Teen Went VIRAL On TikTok",
-        thumb: "thumbnails/Cute Columbian Teen Went VIRAL On TikTok.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/69be666d0a0d7"
-      },
-      {
-        title: "Petite Slut Goes Ballistic On His Cock",
-        thumb: "thumbnails/Petite Slut Goes Ballistic On His Cock.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/69367f0f115fc"
-      },
-      {
-        title: "Big Titty Redhead Teen Goes Crazy On The Dick",
-        thumb: "thumbnails/Big Titty Redhead Teen Goes Crazy On The Dick.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a5f186f34f9e"
-      },
-      {
-        title: "Influencer Slut Gets Punished",
-        thumb: "thumbnails/Influencer Slut Gets Punished.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/69a692fc9b89f"
-      },
-      {
-        title: "Small Blonde Stretched By White Horsecock",
-        thumb: "thumbnails/Small Blonde Stretched By White Horsecock.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a423b2f643e9"
-      },
-      {
-        title: "He Fucked Her After Her Dentist Visit",
-        thumb: "thumbnails/He Fucked Her After Her Dentist Visit.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a4740c4dc36e"
-      },
-      {
-        title: "She Got Addicted To Him",
-        thumb: "thumbnails/She Got Addicted To Him.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6580205eb4567"
-      },
-      {
-        title: "My roommate came to show off her panties, so I helped her come",
-        thumb: "thumbnails/My roommate came to show off her panties, so I helped her come.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/68f7fcf4a2619"
-      },
-      {
-        title: "My ex turned out to be my new roommate",
-        thumb: "thumbnails/My ex turned out to be my new roommate.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/69050b72b5ace"
-      }
-    ];
-
-    const soloVideos = [
-      {
-        title: "I'M CUMMING! Humping Orgasms Compilation",
-        thumb: "thumbnails/I'M CUMMING! Humping Orgasms Compilation.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6950176c170d5"
-      },
-      {
-        title: "Stepsister Panties Try On Haul! Perfect Ass Shaking and Teasing",
-        thumb: "thumbnails/Stepsister Panties Try On Haul! Perfect Ass Shaking and Teasing.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a35043860c09"
-      },
-      {
-        title: "Didn’t expect my first solo day to end with an orgasm and satisfied",
-        thumb: "thumbnails/Didn’t expect my first solo day to end with an orgasm and satisfied.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6865a11372e39"
-      },
-      {
-        title: "broke up with my boyfriend",
-        thumb: "thumbnails/broke up with my boyfriend.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a4fa5e39f17d"
-      },
-      {
-        title: "Playing with my pussy in grey panties and cute socks",
-        thumb: "thumbnails/Playing with my pussy in grey panties and cute socks.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a2ab51d22e55"
-      },
-      {
-        title: "OH FUCK! I want to cum all over your cock!",
-        thumb: "thumbnails/OH FUCK! I want to cum all over your cock.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/67a67599b41a0"
-      },
-      {
-        title: "hot blonde finger her tight wet pussy until squirt",
-        thumb: "thumbnails/hot blonde finger her tight wet pussy until squirt.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a81f0d65ca8a"
-      },
-      {
-        title: "POV JOI for my stepfather",
-        thumb: "thumbnails/POV JOI for my stepfather.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/66f9aed68fae0"
-      },
-      {
-        title: "Caught roommate SQUIRTED from fright",
-        thumb: "thumbnails/Caught roommate SQUIRTED from fright.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6a4a969639fc0"
-      },
-      {
-        title: "A real morning orgasm and pillow humping of a charming girl",
-        thumb: "thumbnails/A real morning orgasm and pillow humping of a charming girl.png",
-        type: "embed",
-        src: "https://www.pornhub.com/embed/6665cab3b6c23"
-      }
-    ];
-
-    const shortFiles = [
+        const shortFiles = [
       "shorts/1.mp4",
       "shorts/2.mp4",
       "shorts/3.mp4",
@@ -1003,6 +891,27 @@
       "shorts/14.mp4",
       "shorts/15.mp4"
     ];
+
+    (function() {
+      var grid = document.getElementById('creatorGrid');
+      if (!grid) return;
+      function card(c) {
+        var a = document.createElement('a');
+        a.className = 'profile-card';
+        a.href = 'profile.html?id=' + encodeURIComponent(c.id);
+        a.innerHTML =
+          '<div class="thumb"><img src="' + c.photo + '" alt="' + c.name.replace(/"/g, '&quot;') + '"></div>' +
+          '<div class="profile-meta"><strong>' + c.name + '</strong></div>';
+        a.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('event', 'click_creator', { event_label: c.id });
+        });
+        return a;
+      }
+      var list = shuffle(creators.slice());
+      list.forEach(function(c) { grid.appendChild(card(c)); });
+      var count = document.getElementById('creatorCount');
+      if (count) count.textContent = list.length;
+    })();
 
         const morningGrid = document.getElementById('morningGrid');
     const nightGrid = document.getElementById('nightGrid');
@@ -1055,19 +964,35 @@
       });
     });
 
+    function findCreator(id) {
+      if (!id || typeof creators === 'undefined') return null;
+      for (var i = 0; i < creators.length; i++) {
+        if (creators[i].id === id) return creators[i];
+      }
+      return null;
+    }
+    function allTapeVideos() {
+      return [].concat(morningVideos || [], nightVideos || [], soloVideos || []);
+    }
     function renderVideos(list, target) {
       list.forEach(function(v) {
         const ready = !!(v && v.src);
         const card = document.createElement('div');
         card.className = ready ? 'card' : 'card placeholder';
+        var who = findCreator(v.creator);
+        var tag = who
+          ? '<a class="creator-tag" href="profile.html?id=' + encodeURIComponent(who.id) + '">' + who.name + '<svg class="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1d9bf0"/><path fill="#fff" d="M10.1 15.6l-3.2-3.2 1.2-1.2 2 2 5-5 1.2 1.2z"/></svg></a>'
+          : '';
         if (ready) {
           card.innerHTML =
             '<div class="thumb">' +
               '<img src="' + v.thumb + '" alt="' + v.title.replace(/"/g, '&quot;') + '">' +
+              tag +
               '<div class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>' +
             '</div>' +
             '<div class="card-title">' + v.title + '</div>';
-          card.addEventListener('click', function() {
+          card.addEventListener('click', function(e) {
+            if (e.target.closest && e.target.closest('.creator-tag')) return;
             if (typeof gtag === 'function') gtag('event', 'click_video', { event_label: v.title });
             modalTitle.textContent = v.title;
             player.classList.remove('active');
@@ -1229,6 +1154,7 @@
       e.preventDefault();
       showFull();
     });
+    if (location.hash === '#shorts') showShorts();
 
     function closeModal() {
       modal.classList.remove('open');
